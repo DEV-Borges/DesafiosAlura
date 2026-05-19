@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel;
+using System.Drawing;
 
 void Titulo() {
     string titulo = @"
@@ -25,45 +26,71 @@ void FinalizaFuncao() {
     Console.Clear();
     Menu();
 }
+int inicial = 0;
+int RetornaNumero() {
+    inicial++;
+    return inicial;
+}
 
 void Menu() {
     Titulo();
-    Console.WriteLine("1. Retornar o valor das operações de dois números");
-    Console.WriteLine("2. Listar bandas favoritas");
-    Console.WriteLine("3. Somar uma lista de inteiros");
+    Console.WriteLine($"{RetornaNumero()}. Retornar o valor das operações de dois números");
+    Console.WriteLine($"{RetornaNumero()}. Listar bandas favoritas");
+    Console.WriteLine($"{RetornaNumero()}. Somar uma lista de inteiros");
+    Console.WriteLine();
 
     Console.WriteLine("****************************** Variaveis e Tipos ***************************");
-    Console.WriteLine("4. Calculando a idade");
-    Console.WriteLine("5. Registro de doações");
-    Console.WriteLine("6. Convertendo distâncias");
-    Console.WriteLine("7. Convertendo hora para minutos");
-    Console.WriteLine("8. Calculando a área de um retângulo");
-    Console.WriteLine("9. Média de notas");
-    Console.WriteLine("10. Convertendo tipos");
-    Console.WriteLine("11. Controle de vidas em um jogo");
-    Console.WriteLine("12. Aumento de salário");
-    Console.WriteLine("13. Calculando a área e o perímetro");
+    Console.WriteLine($"{RetornaNumero()}. Calculando a idade");
+    Console.WriteLine($"{RetornaNumero()}. Registro de doações");
+    Console.WriteLine($"{RetornaNumero()}. Convertendo distâncias");
+    Console.WriteLine($"{RetornaNumero()}. Convertendo hora para minutos");
+    Console.WriteLine($"{RetornaNumero()}. Calculando a área de um retângulo");
+    Console.WriteLine($"{RetornaNumero()}. Média de notas");
+    Console.WriteLine($"{RetornaNumero()}. Convertendo tipos");
+    Console.WriteLine($"{RetornaNumero()}. Controle de vidas em um jogo");
+    Console.WriteLine($"{RetornaNumero()}. Aumento de salário");
+    Console.WriteLine($"{RetornaNumero()}. Calculando a área e o perímetro");
+    Console.WriteLine();
+
 
     Console.WriteLine("****************************** Condicionais com IF/ELSE ***************************");
-    Console.WriteLine("14. Verificando o saldo da conta");
-    Console.WriteLine("15. Classificação de Produtos");
-    Console.WriteLine("16. Classificando a nota de um aluno");
-    Console.WriteLine("17. Verificando acesso a área restrita");
-    Console.WriteLine("18. Classificando a faixa etária");
+    Console.WriteLine($"{RetornaNumero()}. Verificando o saldo da conta");
+    Console.WriteLine($"{RetornaNumero()}. Classificação de Produtos");
+    Console.WriteLine($"{RetornaNumero()}. Classificando a nota de um aluno");
+    Console.WriteLine($"{RetornaNumero()}. Verificando acesso a área restrita");
+    Console.WriteLine($"{RetornaNumero()}. Classificando a faixa etária");
+    Console.WriteLine();
+
 
     Console.WriteLine("****************************** Condicionais com Switch-Case ***************************");
-    Console.WriteLine("19. Calculadora de operações basicas");
-    Console.WriteLine("20. Saudação personalizada");
-    Console.WriteLine("21. Sistema de Recompensas");
-    Console.WriteLine("22. Refatorando a organização de livros");
-    Console.WriteLine("23. Autenticação de usuário");
+    Console.WriteLine($"{RetornaNumero()}. Calculadora de operações basicas");
+    Console.WriteLine($"{RetornaNumero()}. Saudação personalizada");
+    Console.WriteLine($"{RetornaNumero()}. Sistema de Recompensas");
+    Console.WriteLine($"{RetornaNumero()}. Refatorando a organização de livros");
+    Console.WriteLine($"{RetornaNumero()}. Autenticação de usuário");
+    Console.WriteLine();
+
+    Console.WriteLine("****************************** Laços de Repetição com While/ Do WHILE ***************************");
+    Console.WriteLine($"{RetornaNumero()}. Soma das Vendas ");
+    Console.WriteLine($"{RetornaNumero()}. Controle de estoque");
+    Console.WriteLine($"{RetornaNumero()}. Número secreto");
+    Console.WriteLine($"{RetornaNumero()}. Buscando em uma lista");
+    Console.WriteLine($"{RetornaNumero()}. Senhas de atendimento");
+    Console.WriteLine($"{RetornaNumero()}. Conversor de temperatura");
+    Console.WriteLine();
+
+    Console.WriteLine("****************************** Laços de Repetição com For/Foreach ***************************");
+    Console.WriteLine($"{RetornaNumero()}. Pulando números");
+    Console.WriteLine($"{RetornaNumero()}. Tabela de Mutiplicação");
+    Console.WriteLine($"{RetornaNumero()}. Classificação de números");
+    Console.WriteLine($"{RetornaNumero()}. O laço certo para o problema");
+    Console.WriteLine($"{RetornaNumero()}. Quantos ímpares foram digitados?");
 
     Console.WriteLine("0. Sair");
 
     Console.Write("Escolha uma opção: ");
     string opcao = Console.ReadLine()!;
     int opcaoInt = int.Parse(opcao);
-
     switch (opcaoInt) {
         case 1:
             ResultadoDeOperacaoDeDoisNumeros();
@@ -142,6 +169,45 @@ void Menu() {
             AutenticandoUsuario();
             break;
 
+        //****************************** Laços de Repetição com While/ Do WHILE ***************************
+
+        case 24:
+            SomaVendas();
+            break;
+        case 25:
+            ConstroleDeEstoque();
+            break;
+        case 26:
+            NumeroSecreto();
+            break;
+        case 27:
+            BuscandoEmUmaLista();
+            break;
+        case 28:
+            SenhasAtendimento();
+            break;
+        case 29:
+            ConversorDeTemperatura();
+            break;
+
+        //****************************** Laços de Repetição com For/ Foreach ***************************
+
+        case 30:
+            PulandoNumeros();
+            break;
+        case 31:
+            TabelaMultiplicacao();
+            break;
+        case 32:
+            ClassificacaoNumeros();
+            break;
+        case 33:
+            LacoCertoParaProblema();
+            break;
+        case 34:
+            QuantosImparesForamDigitados();
+            break;
+
 
         case 0:
             Console.WriteLine("Saindo do programa...");
@@ -152,6 +218,259 @@ void Menu() {
             Menu();
             break;
     };
+}
+
+void QuantosImparesForamDigitados() {
+    Console.Clear();
+
+    int qtdImpares = 0;
+
+    for (int i = 0; i < 10; i++) {
+        Console.Write("Digite um número: ");
+        int numero = int.Parse(Console.ReadLine()!);
+
+        if (numero % 2 != 0) {
+            qtdImpares++;
+        }
+    }
+
+    Console.WriteLine($"Você digitou {qtdImpares} números ímpares.");
+
+    FinalizaFuncao();
+}
+
+void LacoCertoParaProblema() {
+    Console.Clear();
+
+    List<double> notas = new List<double>
+{
+    8.5,
+    6.2,
+    9.1,
+    5.8,
+    7.4
+};
+
+    double mediaCorte = 7.0;
+
+    foreach (var nota in notas) {
+        if (nota < mediaCorte) {
+            Console.WriteLine($"O aluno com a nota {nota} está abaixo da média!");
+        } else {
+            Console.WriteLine($"O aluno com a nota {nota} está indo muito bem!");
+        }
+    }
+
+    FinalizaFuncao();
+}
+
+void ClassificacaoNumeros() {
+    Console.Clear();
+
+    List<int> notas = new List<int> { 4, 7, 5, 9, 6 };
+
+    for (int i = 0; i < notas.Count; i++) {
+        if (notas[i] >= 6) {
+            Console.WriteLine($"Nota {notas[i]} - Aprovado");
+        } else {
+            Console.WriteLine($"Nota {notas[i]} - Reprovado");
+        }
+    }
+
+    FinalizaFuncao();
+}
+
+void TabelaMultiplicacao() {
+    Console.Clear();
+
+    int numero = 7;
+
+    for (int i = 1; i <= 10; i++) {
+
+        Console.WriteLine(numero + " x " + i + " = " + (numero * i));
+    }
+
+    FinalizaFuncao();
+}
+
+void PulandoNumeros() {
+    Console.Clear();
+
+    for (int i = 1; i <= 20; i++) {
+        if (i % 3 == 0) {
+            continue;
+        }
+        Console.WriteLine(i);
+    }
+
+    FinalizaFuncao();
+}
+
+void ConversorDeTemperatura() {
+    Console.Clear();
+
+    int opcao;
+    do {
+        Console.WriteLine("1 - Celsius para Fahrenheit");
+        Console.WriteLine("2 - Fahrenheit para Celsius");
+        Console.WriteLine("3 - Sair");
+        Console.Write("Escolha uma opção: ");
+        opcao = int.Parse(Console.ReadLine()!);
+
+        switch (opcao) {
+            case 1:
+                Console.Write("Digite a temperatura em Celsius: ");
+                double celsius = double.Parse(Console.ReadLine()!);
+                double fahrenheit = (celsius * 9 / 5) + 32;
+                Console.WriteLine($"{celsius}°C equivalem a {fahrenheit}°F");
+                break;
+            case 2:
+                Console.Write("Digite a temperatura em Fahrenheit: ");
+                double fahr = double.Parse(Console.ReadLine()!);
+                double cel = (fahr - 32) * 5 / 9;
+                Console.WriteLine($"{fahr}°F equivalem a {cel}°C");
+                break;
+            case 3:
+                Console.WriteLine("Saindo...");
+                break;
+            default:
+                Console.WriteLine("Opção inválida. Tente novamente.");
+                break;
+        }
+    } while (opcao != 3);
+
+    FinalizaFuncao();
+}
+
+void SenhasAtendimento() {
+    Console.Clear();
+
+    int senhaGerada = 0;
+    int senhaAtual = 0;
+    int opcao;
+
+    do {
+        Console.WriteLine("1 - Gerar nova senha");
+        Console.WriteLine("2 - Chamar próxima senha");
+        Console.WriteLine("3 - Sair");
+        Console.Write("Escolha uma opção: ");
+        opcao = int.Parse(Console.ReadLine()!);
+
+        switch (opcao) {
+            case 1:
+                senhaGerada++;
+                Console.WriteLine("Senha gerada: " + senhaGerada.ToString("D3"));
+                break;
+            case 2:
+                senhaAtual++;
+                Console.WriteLine("Senha chamada: " + senhaAtual.ToString("D3"));
+                break;
+            case 3:
+                Console.WriteLine("Encerrando sistema.");
+                break;
+            default:
+                Console.WriteLine("Opção inválida.");
+                break;
+        }
+    } while (opcao != 3);
+
+    FinalizaFuncao();
+}
+
+void BuscandoEmUmaLista() {
+    Console.Clear();
+
+    List<string> alunos = new List<string> { "Ana", "Carlos", "Bianca", "João", "Marina" };
+
+    Console.WriteLine("Digite o nome do aluno:");
+    string nomeBusca = Console.ReadLine()!;
+    int indice = 0;
+    bool encontrado = false;
+
+    while (indice < alunos.Count) {
+        if (alunos[indice] == nomeBusca) {
+            encontrado = true;
+            break;
+        }
+        indice++;
+    }
+
+    if (encontrado) {
+        Console.WriteLine($"Aluno encontrado na posição: {indice}");
+    } else {
+        Console.WriteLine("Aluno não está presente na lista");
+    }
+
+    FinalizaFuncao();
+}
+
+void NumeroSecreto() {
+    Console.Clear();
+
+    int segredo = 7;
+    int tentativa;
+
+    while (true) {
+        Console.Write("Tente adivinhar o número entre 1 e 10: ");
+        tentativa = int.Parse(Console.ReadLine()!);
+
+        if (tentativa == segredo) {
+            Console.WriteLine("Parabéns, você acertou!");
+            break;
+        }
+        Console.WriteLine("Errado! Tente novamente.");
+    }
+
+    FinalizaFuncao();
+}
+
+void ConstroleDeEstoque() {
+    Console.Clear();
+
+    int estoque = 0;
+
+    Console.WriteLine("Deseja adicionar um produto ao estoque?");
+    Console.WriteLine("1 - Sim | 0 - Não");
+    int resposta = int.Parse(Console.ReadLine()!);
+
+    while (resposta == 1) {
+        Console.WriteLine("Quantidade:");
+        int quantidade = Convert.ToInt32(Console.ReadLine());
+        estoque += quantidade;
+
+        Console.WriteLine($"Estoque atual: {estoque}");
+
+        Console.WriteLine("Deseja continuar?");
+        Console.WriteLine("1 - Sim | 0 - Não");
+        resposta = int.Parse(Console.ReadLine()!);
+    }
+
+    Console.WriteLine("Obrigado por usar nosso sistema de estoque!");
+
+    FinalizaFuncao();   
+}
+
+void SomaVendas() {
+    Console.Clear();
+
+    double vendaTotal = 0;
+    double valor = 0;
+
+    do {
+
+        Console.Write($"Digite o valor da venda (ou 0 para encerrar): ");
+        if (double.TryParse(Console.ReadLine()!, out valor)) {
+            vendaTotal += valor ;
+        } else { 
+            Console.WriteLine("Entrada invalida");
+        }
+
+    } while (valor != 0);
+
+    Console.WriteLine($"Total de vendas do dia: R${vendaTotal}");
+
+    FinalizaFuncao();
+
 }
 
 void AutenticandoUsuario() {
